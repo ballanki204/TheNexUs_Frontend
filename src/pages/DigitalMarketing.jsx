@@ -117,25 +117,44 @@ class DigitalMarketing extends React.Component {
           <section className="relative py-24 md:py-32 premium-bg overflow-hidden">
             {/* Animated Mesh Gradients */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-              <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-orange-400/15 via-yellow-400/10 to-amber-400/15 blur-[120px] animate-float opacity-60" style={{ animation: 'mesh-gradient-1 18s ease-in-out infinite' }} />
-              <div className="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-orange-500/15 via-yellow-400/10 to-orange-400/15 blur-[140px] animate-float opacity-60" style={{ animation: 'mesh-gradient-2 20s ease-in-out infinite', animationDelay: '5s' }} />
+              <div
+                className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-orange-400/15 via-yellow-400/10 to-amber-400/15 blur-[120px] animate-float opacity-60"
+                style={{
+                  animation: "mesh-gradient-1 18s ease-in-out infinite",
+                }}
+              />
+              <div
+                className="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] rounded-full bg-gradient-to-tl from-orange-500/15 via-yellow-400/10 to-orange-400/15 blur-[140px] animate-float opacity-60"
+                style={{
+                  animation: "mesh-gradient-2 20s ease-in-out infinite",
+                  animationDelay: "5s",
+                }}
+              />
             </div>
-            
+
             <div className="container relative z-10">
               <div className="mx-auto max-w-4xl text-center animate-fade-in">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-orange-500/20 mb-6 animate-slide-up">
                   <TrendingUp className="w-4 h-4 text-orange-600" />
-                  <span className="text-xs font-semibold uppercase tracking-wider gradient-text">Marketing Excellence</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider gradient-text">
+                    Marketing Excellence
+                  </span>
                 </div>
-                <h1 className="mb-6 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight gradient-text-extended animate-slide-up">
+                <h1 className="mb-6 text-5xl md:text-6xl pb-3 lg:text-7xl font-bold tracking-tight gradient-text-extended animate-slide-up">
                   Digital Marketing Services
                 </h1>
-                <p className="mb-8 text-lg md:text-xl text-muted-foreground leading-relaxed font-light animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                <p
+                  className="mb-8 text-lg md:text-xl text-muted-foreground leading-relaxed font-light animate-fade-in"
+                  style={{ animationDelay: "0.2s" }}
+                >
                   Comprehensive digital marketing solutions to grow your online
                   presence, reach your target audience, and drive measurable
                   results. Transform your brand with data-driven strategies.
                 </p>
-                <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <div
+                  className="animate-fade-in"
+                  style={{ animationDelay: "0.4s" }}
+                >
                   <Link to="/book">
                     <Button
                       size="lg"
@@ -160,13 +179,16 @@ class DigitalMarketing extends React.Component {
               <div className="text-center mb-16 animate-slide-up">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-orange-500/20 mb-6">
                   <Sparkles className="w-4 h-4 text-orange-600" />
-                  <span className="text-xs font-semibold uppercase tracking-wider gradient-text">Our Solutions</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider gradient-text">
+                    Our Solutions
+                  </span>
                 </div>
-                <h2 className="mb-6 text-4xl md:text-5xl font-bold gradient-text-extended">
+                <h2 className="mb-6 text-4xl md:text-5xl pb-3 font-bold gradient-text-extended">
                   Our Marketing Solutions
                 </h2>
                 <p className="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed">
-                  Full-service digital marketing to elevate your brand and drive measurable results
+                  Full-service digital marketing to elevate your brand and drive
+                  measurable results
                 </p>
               </div>
 
@@ -181,10 +203,10 @@ class DigitalMarketing extends React.Component {
                     >
                       {/* Gradient Background */}
                       <div className="absolute inset-0 bg-gradient-to-br from-orange-400/5 via-amber-500/5 to-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      
+
                       {/* Shine Effect */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                      
+
                       <CardHeader className="relative z-10">
                         <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-xl">
                           <Icon className="h-7 w-7 text-orange-600 group-hover:text-amber-600 transition-colors" />
@@ -192,7 +214,9 @@ class DigitalMarketing extends React.Component {
                         <CardTitle className="text-xl mb-2 group-hover:gradient-text transition-all duration-300">
                           {service.title}
                         </CardTitle>
-                        <CardDescription className="text-sm leading-relaxed">{service.description}</CardDescription>
+                        <CardDescription className="text-sm leading-relaxed">
+                          {service.description}
+                        </CardDescription>
                       </CardHeader>
                       <CardContent className="relative z-10">
                         <ul className="space-y-2">
@@ -212,7 +236,10 @@ class DigitalMarketing extends React.Component {
                 })}
               </div>
 
-              <div className="mt-12 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <div
+                className="mt-12 text-center animate-fade-in"
+                style={{ animationDelay: "0.6s" }}
+              >
                 <Link to="/book">
                   <Button
                     size="lg"
@@ -230,15 +257,17 @@ class DigitalMarketing extends React.Component {
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 opacity-50" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 opacity-50" />
-            
+
             <div className="container relative z-10">
               <div className="mx-auto max-w-4xl">
                 <div className="text-center mb-16 animate-slide-up">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-orange-500/20 mb-6">
                     <Target className="w-4 h-4 text-orange-600" />
-                    <span className="text-xs font-semibold uppercase tracking-wider gradient-text">Why Choose Us</span>
+                    <span className="text-xs font-semibold uppercase tracking-wider gradient-text">
+                      Why Choose Us
+                    </span>
                   </div>
-                  <h2 className="mb-6 text-4xl md:text-5xl font-bold gradient-text-extended">
+                  <h2 className="mb-6 text-4xl md:text-5xl pb-3 font-bold gradient-text-extended">
                     Why Choose Our Digital Marketing?
                   </h2>
                 </div>
@@ -274,10 +303,10 @@ class DigitalMarketing extends React.Component {
                       >
                         {/* Gradient Background */}
                         <div className="absolute inset-0 bg-gradient-to-br from-orange-400/5 via-amber-500/5 to-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        
+
                         {/* Shine Effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                        
+
                         <CardContent className="p-6 relative z-10">
                           <div className="flex items-start gap-4">
                             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500/20 to-amber-500/20 group-hover:scale-110 transition-all duration-300">

@@ -1,49 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSmoothScrollToTop } from "../hooks/useScrollAnimation";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Share2, MapPin, Clock, DollarSign, Users } from "lucide-react";
+import { jobsData } from "../lib/jobsData";
 
 const JobDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [job, setJob] = useState(null);
 
   // Smooth scroll to top when component mounts
   useSmoothScrollToTop();
 
-  // Mock job data - replace with API call
-  const job = {
-    id,
-    title: "Senior Software Engineer",
-    department: "Engineering",
-    location: "Visakhapatnam, Andhra Pradesh",
-    remote: false,
-    type: "Full-time",
-    salary: "₹120,000 - ₹160,000",
-    postedDate: "2 days ago",
-    description:
-      "Join our innovative team to build cutting-edge software solutions in software development, digital marketing, plant marketplace, and safety apps. We're looking for passionate engineers who thrive in a collaborative environment.",
-    responsibilities: [
-      "Design and develop scalable web applications",
-      "Collaborate with cross-functional teams",
-      "Write clean, maintainable code",
-      "Participate in code reviews and mentoring",
-    ],
-    requirements: [
-      "5+ years of software development experience",
-      "Strong proficiency in React and Node.js",
-      "Experience with cloud platforms (AWS/Azure)",
-      "Bachelor's degree in Computer Science or equivalent",
-    ],
-    benefits: [
-      "Competitive salary and equity package",
-      "Health, dental, and vision insurance",
-      "Flexible work arrangements",
-      "Professional development budget",
-    ],
-  };
+  useEffect(() => {
+    const jobId = parseInt(id);
+    const foundJob = jobsData.find((job) => job.id === jobId);
+    if (foundJob) {
+      setJob(foundJob);
+    } else {
+      // Handle job not found - could navigate to 404 or show error
+      navigate("/careers/jobs");
+    }
+  }, [id, navigate]);
+
+  if (!job) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading job details...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleApply = () => {
     navigate("/careers/apply");
@@ -97,7 +89,9 @@ const JobDetails = () => {
                 </Badge>
               </div>
 
-              <p className="text-sm text-gray-500">Posted {job.postedDate}</p>
+              <p className="text-sm text-gray-500">
+                Posted {job.postedDays} days ago
+              </p>
             </div>
 
             <div className="flex gap-3">

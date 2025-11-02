@@ -180,7 +180,7 @@ class PlantMarketplace extends React.Component {
                     Platform Features
                   </span>
                 </div>
-                <h2 className="mb-6 text-4xl md:text-5xl font-bold gradient-text-extended">
+                <h2 className="mb-6 text-4xl md:text-5xl p-3 font-bold gradient-text-extended">
                   Everything You Need to Succeed
                 </h2>
                 <p className="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed">
@@ -231,7 +231,7 @@ class PlantMarketplace extends React.Component {
                     Browse Categories
                   </span>
                 </div>
-                <h2 className="mb-6 text-4xl md:text-5xl font-bold gradient-text-extended">
+                <h2 className="mb-6 text-4xl md:text-5xl p-3 font-bold gradient-text-extended">
                   Plant Categories
                 </h2>
                 <p className="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed">

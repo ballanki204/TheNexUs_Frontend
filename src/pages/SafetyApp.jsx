@@ -258,7 +258,7 @@ const SafetyApp = () => {
                   How It Works
                 </span>
               </div>
-              <h2 className="mb-6 text-4xl md:text-5xl font-bold gradient-text-extended">
+              <h2 className="mb-6 text-4xl md:text-5xl p-3 font-bold gradient-text-extended">
                 Three Simple Steps to Safety
               </h2>
               <p className="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed">
@@ -511,7 +511,7 @@ const SafetyApp = () => {
                   Get Started
                 </span>
               </div>
-              <h2 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold gradient-text-extended animate-slide-up">
+              <h2 className="mb-6 text-4xl md:text-5xl p-3 lg:text-6xl font-bold gradient-text-extended animate-slide-up">
                 Start Improving Safety Today
               </h2>
               <p

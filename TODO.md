@@ -1,5 +1,19 @@
-# TODO: Add Smooth Scroll Animation to Job Listings and Application Form Pages
+# TODO: Modify ApplicationForm.jsx Resume Field
 
-- [x] Convert JobListings.jsx from class component to functional component and add useEffect hook to smoothly scroll to the top of the page when the component mounts.
-- [x] Convert ApplicationForm.jsx from class component to functional component and add useEffect hook to smoothly scroll to the top of the page when the component mounts.
-- [x] Create useSmoothScrollToTop hook in useScrollAnimation.ts and refactor all pages to use this centralized hook.
+- [x] Remove handleFileChange function
+- [x] Update renderStep2 to replace file upload with URL input for resume link
+- [x] Ensure resumeLink is collected as URL string
+- [x] Update form reset to clear resumeLink
+
+# TODO: Replace Alert Messages with Toast Notifications
+
+- [x] Import useToast hook
+- [x] Replace success alert with toast success message
+- [x] Replace error alert with toast error message
+- [x] Improve colors for toast messages
+
+# TODO: Update Software Page Icons
+
+- [x] Read Software.jsx to identify current icons in "Our Development Process" section
+- [x] Read DigitalMarketing.jsx to identify icons in "Our Marketing Solutions" section
+- [x] Update icons in Software.jsx to match DigitalMarketing.jsx

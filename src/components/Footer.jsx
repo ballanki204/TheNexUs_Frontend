@@ -120,7 +120,7 @@ class Footer extends React.Component {
                   <div className="w-8 h-8 rounded-full glass-card border border-primary/20 flex items-center justify-center group-hover/contact:bg-primary/10 group-hover/contact:border-primary/50 transition-all duration-300">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <span>contact@thenexus.com</span>
+                  <span>info@thenexusrepo.com</span>
                 </a>
                 <a
                   href="tel:+1234567890"
@@ -129,7 +129,7 @@ class Footer extends React.Component {
                   <div className="w-8 h-8 rounded-full glass-card border border-primary/20 flex items-center justify-center group-hover/contact:bg-primary/10 group-hover/contact:border-primary/50 transition-all duration-300">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <span>+1 (234) 567-890</span>
+                  <span>+91 9876543210</span>
                 </a>
               </div>
 

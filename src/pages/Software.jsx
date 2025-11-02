@@ -19,6 +19,8 @@ import {
   Shield,
   Bot,
   Download,
+  Search,
+  CheckCircle,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -282,7 +284,7 @@ Contact us for more information about our ${category.title.toLowerCase()} soluti
                   Our Expertise
                 </span>
               </div>
-              <h2 className="mb-6 text-4xl md:text-5xl font-bold gradient-text-extended">
+              <h2 className="mb-6 text-4xl md:text-5xl pb-3 font-bold gradient-text-extended">
                 Industry-Specific Solutions
               </h2>
               <p className="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed">
@@ -411,21 +413,21 @@ Contact us for more information about our ${category.title.toLowerCase()} soluti
                     step: "100",
                     title: "Discovery",
                     desc: "Understanding your requirements and existing projects. We dive deep into your business needs to create the perfect solution.",
-                    icon: "🔍",
+                    icon: Search,
                     gradient: "from-blue-400 to-cyan-500",
                   },
                   {
                     step: "32",
                     title: "Development",
                     desc: "Building custom solutions with modern technologies. Agile methodology ensures rapid iteration and continuous improvement.",
-                    icon: "⚡",
+                    icon: Code2,
                     gradient: "from-purple-400 to-pink-500",
                   },
                   {
                     step: "29",
                     title: "Delivery",
                     desc: "Deployment and ongoing support for your application. We're with you every step of the way, ensuring long-term success.",
-                    icon: "🚀",
+                    icon: CheckCircle,
                     gradient: "from-green-400 to-emerald-500",
                   },
                 ].map((item, index) => (
@@ -438,7 +440,9 @@ Contact us for more information about our ${category.title.toLowerCase()} soluti
                       className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                     />
                     <CardHeader className="relative z-10">
-                      <div className="mb-4 text-5xl">{item.icon}</div>
+                      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-xl">
+                        <item.icon className="h-7 w-7 text-primary" />
+                      </div>
                       <div className="mb-4 text-5xl font-bold gradient-text">
                         {animatedNumbers[index] || 0}+
                       </div>

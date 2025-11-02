@@ -40,7 +40,7 @@ class CareersHero extends React.Component {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight gradient-text-extended animate-slide-up">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 p-4 leading-tight gradient-text-extended animate-slide-up">
                 Shape the Future of
                 <span className="block"> Technology</span>
               </h1>
@@ -85,7 +85,7 @@ class CareersHero extends React.Component {
               style={{ animationDelay: "0.3s" }}
             >
               <div className="glass-card border-2 border-primary/10 hover:border-primary/30 rounded-2xl p-6 text-center transition-all duration-300 hover:scale-105 animate-hover-lift">
-                <Target className="w-8 h-8 mx-auto mb-3 text-primary animate-pulse-glow" />
+                <Target className="w-8 h-8 mx-auto mb-3 text-primary " />
                 <div className="text-3xl font-bold mb-1 gradient-text-extended">
                   50+
                 </div>
@@ -95,7 +95,7 @@ class CareersHero extends React.Component {
               </div>
 
               <div className="glass-card border-2 border-primary/10 hover:border-primary/30 rounded-2xl p-6 text-center transition-all duration-300 hover:scale-105 animate-hover-lift">
-                <Heart className="w-8 h-8 mx-auto mb-3 text-primary animate-pulse-glow" />
+                <Heart className="w-8 h-8 mx-auto mb-3 text-primary " />
                 <div className="text-3xl font-bold mb-1 gradient-text-extended">
                   98%
                 </div>
@@ -105,7 +105,7 @@ class CareersHero extends React.Component {
               </div>
 
               <div className="glass-card border-2 border-primary/10 hover:border-primary/30 rounded-2xl p-6 text-center col-span-2 transition-all duration-300 hover:scale-105 animate-hover-lift">
-                <Users className="w-8 h-8 mx-auto mb-3 text-primary animate-pulse-glow" />
+                <Users className="w-8 h-8 mx-auto mb-3 text-primary " />
                 <div className="text-3xl font-bold mb-1 gradient-text-extended">
                   15+
                 </div>

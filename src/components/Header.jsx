@@ -164,10 +164,10 @@ function Header() {
   const headerHeight = "h-20 md:h-24";
   const logoSpace =
     scrollDirection === "down" && isScrolled
-      ? "space-x-3"
+      ? "space-x-2"
       : isScrolled
-      ? "space-x-3"
-      : "space-x-3 md:space-x-3";
+      ? "space-x-2"
+      : "space-x-2 md:space-x-2";
 
   return (
     <header
@@ -320,7 +320,7 @@ function Header() {
 
       {isMenuOpen && (
         <div className="md:hidden border-t border-primary/10 glass-card shadow-lg">
-          <nav className="container flex flex-col gap-3 py-6">
+          <nav className="container flex flex-col  py-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}

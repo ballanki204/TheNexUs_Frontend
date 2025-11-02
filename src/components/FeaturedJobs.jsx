@@ -47,14 +47,14 @@ class FeaturedJobs extends React.Component {
       },
       {
         id: 4,
-        title: "Software Development Intern",
+        title: "Software Intern",
         department: "Engineering",
         location: "Visakhapatnam, Andhra Pradesh",
         type: "Internship",
         category: "internship",
         duration: "3-6 months",
         description:
-          "Perfect for students and fresh graduates. Learn cutting-edge technologies while working on real projects.",
+          "Perfect for students and fresh graduates. Learn technologies while working on projects.",
       },
       {
         id: 5,
@@ -94,7 +94,7 @@ class FeaturedJobs extends React.Component {
           <div className="text-center mb-12 animate-slide-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-primary/20 mb-6">
               <Briefcase className="w-4 h-4 text-primary" />
-              <span className="text-xs font-semibold uppercase tracking-wider gradient-text">
+              <span className="text-xs font-semibold pb-3 uppercase tracking-wider gradient-text">
                 Career Opportunities
               </span>
             </div>
