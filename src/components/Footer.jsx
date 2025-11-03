@@ -46,7 +46,11 @@ class Footer extends React.Component {
         <div className="container relative z-10 py-16 md:py-20">
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5 mb-12">
             <div className="lg:col-span-2">
-              <div className="flex items-center space-x-3 mb-6 group">
+              <Link
+                to="/"
+                className="flex items-center space-x-3 mb-6 group cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="500"
@@ -104,7 +108,7 @@ class Footer extends React.Component {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Link>
               <p className="text-base text-left text-muted-foreground leading-relaxed max-w-md mb-8">
                 Empowering businesses with cutting-edge technology solutions,
                 professional back-office services, and comprehensive IT support.

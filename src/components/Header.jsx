@@ -155,19 +155,17 @@ function Header() {
     { name: "About", path: "/about" },
   ];
 
-  // Constant sizes for logo and text
-  const logoHeight = 56; // Constant: 56px
-  const textSizePx = 24; // Constant: 24px
+  // Dynamic sizes for logo and text based on scroll
+  const logoHeight = isScrolled ? 40 : 56; // Shrink from 56px to 40px when scrolled
+  const textSizePx = isScrolled ? 18 : 24; // Shrink from 24px to 18px when scrolled
 
-  const logoSize = "h-14 md:h-16";
-  const textSize = "text-xl md:text-2xl";
-  const headerHeight = "h-20 md:h-24";
+  const headerHeight = isScrolled ? "h-16 md:h-20" : "h-20 md:h-24";
   const logoSpace =
     scrollDirection === "down" && isScrolled
       ? "space-x-2"
       : isScrolled
-      ? "space-x-2"
-      : "space-x-2 md:space-x-2";
+      ? "space-x-2.5"
+      : "space-x-2.5 md:space-x-3";
 
   return (
     <header
@@ -302,7 +300,7 @@ function Header() {
               </span>
             </Button>
           </Link>
-          <LoginPopup />
+          {/* <LoginPopup /> */}
         </nav>
 
         <button
@@ -346,9 +344,9 @@ function Header() {
                 Book a Session
               </Button>
             </NavLink>
-            <div className="pt-2 border-t border-primary/10 mt-2">
+            {/* <div className="pt-2 border-t border-primary/10 mt-2">
               <LoginPopup />
-            </div>
+            </div> */}
           </nav>
         </div>
       )}

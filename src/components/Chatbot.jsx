@@ -63,12 +63,12 @@ const Chatbot = () => {
       {/* Chat Window */}
       {isOpen && (
         <Card className="fixed bottom-20 md:bottom-25 right-10 md:right-20 w-60 md:w-80 h-80 md:h-96 z-40 flex flex-col shadow-lg">
-          <CardHeader className="pb-2">
-            <CardTitle className="text-lg"> Viori Chatbot</CardTitle>
+          <CardHeader className="pb-2 flex-shrink-0">
+            <CardTitle className="text-lg"> Viora AI</CardTitle>
           </CardHeader>
-          <CardContent className="flex-1 flex flex-col">
-            <ScrollArea className="flex-1 mb-4">
-              <div className="space-y-2">
+          <CardContent className="flex-1 flex flex-col min-h-0">
+            <ScrollArea className="flex-1">
+              <div className="space-y-2 pb-4">
                 {messages.map((message) => (
                   <div
                     key={message.id}
@@ -83,7 +83,7 @@ const Chatbot = () => {
                 ))}
               </div>
             </ScrollArea>
-            <div className="flex space-x-2 ">
+            <div className="flex space-x-2 mt-2 flex-shrink-0">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}

@@ -5,6 +5,7 @@ A modern, responsive business website built with React and Vite, showcasing serv
 ## Features
 
 - **Logo Animation**: Interactive logo that starts black and white, changes to colorful gradient on hover, with title sliding in from the right side.
+- **Dynamic Header**: Logo and text shrink when scrolling down, with header height adjustment for better space utilization.
 - **Homepage**: Hero section with key highlights and navigation (Contact form removed).
   - **Our Services**: Software Development and Digital Marketing.
   - **Our Products**: Plant Marketplace and Safety & HIRA App.
@@ -23,7 +24,8 @@ A modern, responsive business website built with React and Vite, showcasing serv
 - **Plant Marketplace**: Platform for buying and selling plants with custom earthy color theme (Primary: #5A8F6E, Secondary: #D7CCC8, Accent: #A1887F, Background: #F5F5F5, Text: #3E2723).
 - **Safety App**: Application focused on safety features with custom professional blue color theme (Primary: #1976D2, Secondary: #90CAF9, Accent: #FFB300, Background: #F5F5F5, Text: #1A1A1A).
 - **Contact Forms**: Interactive forms for booking consultancy and general inquiries.
-- **Chatbot**: Integrated chatbot for user assistance.
+- **Chatbot**: Integrated chatbot for user assistance with fixed input positioning at the bottom of the chat window.
+- **Footer Navigation**: Clickable logo in footer redirects to home page with smooth scrolling.
 - **Responsive Design**: Optimized for desktop and mobile devices.
 - **Dark/Light Mode**: Theme switching capability.
 - **Breadcrumb Navigation**: Dynamic breadcrumbs on all pages except home and booking consultancy.
