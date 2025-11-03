@@ -321,7 +321,7 @@ function Header() {
               </span>
             </Button>
           </Link>
-          <LoginPopup />
+          {/* <LoginPopup /> */}
         </nav>
 
         <button
@@ -365,9 +365,9 @@ function Header() {
                 Book a Session
               </Button>
             </NavLink>
-            <div className="pt-2 border-t border-primary/10 mt-2">
+            {/* <div className="pt-2 border-t border-primary/10 mt-2">
               <LoginPopup />
-            </div>
+            </div> */}
           </nav>
         </div>
       )}
