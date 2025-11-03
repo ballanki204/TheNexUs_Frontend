@@ -68,70 +68,28 @@ function Header() {
   };
 
   const handleBookConsultancy = () => {
-    navigate("/book", {
-      state: {
-        fromPage: {
-          label: getPageLabel(location.pathname),
-          path: location.pathname,
-        },
-      },
-    });
+    navigate("/book");
     closeMenu();
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, 100);
   };
 
-  const getPageLabel = (pathname) => {
-    const pageMap = {
-      "/": "Home",
-      "/software": "Software Solutions",
-      "/digital-marketing": "Digital Marketing",
-      "/plant-marketplace": "Plant Marketplace",
-      "/safety-app": "Safety App",
-      "/careers": "Careers",
-      "/about": "About Us",
-    };
-    return pageMap[pathname] || "Page";
-  };
-
   // Define theme colors for each page
   const themeColors = {
-    "/": {
-      hover: "hover:text-primary",
-      active: "text-primary",
-      dotColor: "bg-primary",
-    },
-    "/about": {
-      hover: "hover:text-primary",
-      active: "text-primary",
-      dotColor: "bg-primary",
-    },
-    "/software": {
-      hover: "hover:text-primary",
-      active: "text-primary",
-      dotColor: "bg-primary",
-    },
+    "/": { hover: "hover:text-primary", active: "text-primary" },
+    "/about": { hover: "hover:text-primary", active: "text-primary" },
+    "/software": { hover: "hover:text-primary", active: "text-primary" },
     "/digital-marketing": {
       hover: "hover:text-orange-600",
       active: "text-orange-600",
-      dotColor: "bg-orange-600",
     },
     "/plant-marketplace": {
       hover: "hover:text-green-600",
       active: "text-green-600",
-      dotColor: "bg-green-600",
     },
-    "/safety-app": {
-      hover: "hover:text-blue-600",
-      active: "text-blue-600",
-      dotColor: "bg-blue-600",
-    },
-    "/careers": {
-      hover: "hover:text-primary",
-      active: "text-primary",
-      dotColor: "bg-primary",
-    },
+    "/safety-app": { hover: "hover:text-blue-600", active: "text-blue-600" },
+    "/careers": { hover: "hover:text-primary", active: "text-primary" },
   };
 
   const getCurrentTheme = () => {
@@ -148,24 +106,74 @@ function Header() {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Software", path: "/software" },
-    { name: "Digital", path: "/digital-marketing" },
+    { name: "Digital Marketing", path: "/digital-marketing" },
     { name: "Plant Marketplace", path: "/plant-marketplace" },
     { name: "Safety App", path: "/safety-app" },
     { name: "Careers", path: "/careers" },
     { name: "About", path: "/about" },
   ];
 
-  // Dynamic sizes for logo and text based on scroll
-  const logoHeight = isScrolled ? 40 : 56; // Shrink from 56px to 40px when scrolled
-  const textSizePx = isScrolled ? 18 : 24; // Shrink from 24px to 18px when scrolled
+  // Calculate precise sizes with smooth interpolation
+  const [logoHeight, setLogoHeight] = React.useState(56); // Default: 14 * 4 (56px)
+  const [textSizePx, setTextSizePx] = React.useState(24); // Default: text-xl (24px)
 
-  const headerHeight = isScrolled ? "h-16 md:h-20" : "h-20 md:h-24";
+  React.useEffect(() => {
+    const updateSizes = () => {
+      const scrollY = window.scrollY;
+
+      // Logo size: 56px (default) -> 40px (scrolled) -> 32px (scrolled down)
+      let newLogoHeight = 56;
+      if (scrollY > 50) {
+        if (scrollDirection === "down") {
+          newLogoHeight = Math.max(32, 56 - (scrollY / 100) * 24); // Smoothly scale down to 32px
+        } else {
+          newLogoHeight = Math.max(40, 56 - (scrollY / 100) * 16); // Smoothly scale down to 40px
+        }
+      }
+
+      // Text size: 24px (default) -> 18px (scrolled) -> 16px (scrolled down)
+      let newTextSize = 24;
+      if (scrollY > 50) {
+        if (scrollDirection === "down") {
+          newTextSize = Math.max(16, 24 - (scrollY / 100) * 8); // Smoothly scale down to 16px
+        } else {
+          newTextSize = Math.max(18, 24 - (scrollY / 100) * 6); // Smoothly scale down to 18px
+        }
+      }
+
+      setLogoHeight(newLogoHeight);
+      setTextSizePx(newTextSize);
+    };
+
+    updateSizes();
+    window.addEventListener("scroll", updateSizes, { passive: true });
+    return () => window.removeEventListener("scroll", updateSizes);
+  }, [scrollDirection, isScrolled]);
+
+  const logoSize =
+    scrollDirection === "down" && isScrolled
+      ? "h-8 md:h-10"
+      : isScrolled
+      ? "h-10 md:h-12"
+      : "h-14 md:h-16";
+  const textSize =
+    scrollDirection === "down" && isScrolled
+      ? "text-sm"
+      : isScrolled
+      ? "text-base"
+      : "text-xl md:text-2xl";
+  const headerHeight =
+    scrollDirection === "down" && isScrolled
+      ? "h-16"
+      : isScrolled
+      ? "h-18"
+      : "h-20 md:h-24";
   const logoSpace =
     scrollDirection === "down" && isScrolled
-      ? "space-x-2"
+      ? "space-x-2.5"
       : isScrolled
       ? "space-x-2.5"
-      : "space-x-2.5 md:space-x-3";
+      : "space-x-3 md:space-x-4";
 
   return (
     <header
@@ -173,7 +181,11 @@ function Header() {
         isScrolled
           ? "glass-effect shadow-xl backdrop-blur-xl bg-background/85 border-primary/10"
           : "bg-background/98 backdrop-blur-md shadow-md border-primary/5"
-      } translate-y-0`}
+      } ${
+        scrollDirection === "down" && isScrolled
+          ? "-translate-y-0.5"
+          : "translate-y-0"
+      }`}
     >
       <div
         className={`container flex ${headerHeight} items-center justify-between px-4 md:px-8 gap-8 transition-all duration-500`}
@@ -260,37 +272,46 @@ function Header() {
           </div>
         </Link>
 
-        <nav className="hidden md:flex md:items-center transition-all duration-500 md:gap-1 lg:gap-2 xl:gap-3">
+        <nav
+          className={`hidden md:flex md:items-center transition-all duration-500 ${
+            scrollDirection === "down" && isScrolled ? "md:gap-3" : "md:gap-4"
+          }`}
+        >
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.path}
-              className={`relative transition-all duration-300 group px-1 py-1.5 rounded-lg text-xs md:text-sm lg:text-sm xl:text-sm font-semibold ${
-                currentTheme.hover
-              } ${
+              className={`relative transition-all duration-300 group px-2 py-1.5 rounded-lg ${
+                scrollDirection === "down" && isScrolled ? "text-xs" : "text-xs"
+              } font-semibold ${currentTheme.hover} ${
                 location.pathname === item.path
-                  ? `${currentTheme.active}`
-                  : "text-muted-foreground hover:text-primary"
+                  ? `${currentTheme.active} `
+                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
               }`}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 {item.name}
                 {location.pathname === item.path && (
-                  <span
-                    className={`w-1.5 h-1.5 rounded-full ${currentTheme.dotColor} animate-pulse-glow`}
-                  />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
                 )}
               </span>
               {location.pathname === item.path && (
                 <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full animate-scale-in" />
               )}
               <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+
+              {/* Hover glow effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10" />
             </Link>
           ))}
           <Link to={"/book"}>
             <Button
-              className="relative bg-gradient-to-r from-primary via-blue-500 to-primary hover:from-blue-500 hover:via-primary hover:to-primary text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden group/btn px-5 py-2 text-sm"
+              className={`relative bg-gradient-to-r from-primary via-blue-500 to-primary hover:from-blue-500 hover:via-primary hover:to-primary text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden group/btn ${
+                scrollDirection === "down" && isScrolled
+                  ? "px-4 py-1.5 text-xs"
+                  : "px-6 py-2 text-sm"
+              }`}
               onClick={handleBookConsultancy}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity" />
@@ -300,7 +321,7 @@ function Header() {
               </span>
             </Button>
           </Link>
-          {/* <LoginPopup /> */}
+          <LoginPopup />
         </nav>
 
         <button
@@ -318,7 +339,7 @@ function Header() {
 
       {isMenuOpen && (
         <div className="md:hidden border-t border-primary/10 glass-card shadow-lg">
-          <nav className="container flex flex-col  py-2">
+          <nav className="container flex flex-col gap-3 py-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -344,9 +365,9 @@ function Header() {
                 Book a Session
               </Button>
             </NavLink>
-            {/* <div className="pt-2 border-t border-primary/10 mt-2">
+            <div className="pt-2 border-t border-primary/10 mt-2">
               <LoginPopup />
-            </div> */}
+            </div>
           </nav>
         </div>
       )}
