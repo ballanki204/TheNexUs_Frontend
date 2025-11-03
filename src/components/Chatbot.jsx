@@ -12,22 +12,40 @@ const Chatbot = () => {
   ]);
   const [input, setInput] = useState("");
 
-  const handleSend = () => {
-    if (input.trim()) {
-      const newMessage = {
-        id: messages.length + 1,
-        text: input,
-        sender: "user",
-      };
-      setMessages([...messages, newMessage]);
-      setInput("");
+  const sendMessage = async () => {
+    if (!input.trim()) return;
 
-      // Simulate bot response
+    const userMsg = { sender: "user", text: input };
+    setMessages([...messages, userMsg]);
+    setInput("");
+
+    try {
+      // Using a free API for demo purposes (JSONPlaceholder echo)
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        const botMsg = {
+          sender: "bot",
+          text: `Viora AI: ${input}. (Demo response)`,
+        };
+        setMessages((prev) => [...prev, botMsg]);
+      } else {
+        throw new Error("API failed");
+      }
+    } catch (error) {
+      // Fallback to simulated response if API fails
       setTimeout(() => {
         const botResponse = {
-          id: messages.length + 2,
-          text: "Thank you for your message. This is a demo response.",
           sender: "bot",
+          text: "Thank you for your message. This is a demo response.",
         };
         setMessages((prev) => [...prev, botResponse]);
       }, 1000);
@@ -36,7 +54,7 @@ const Chatbot = () => {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      handleSend();
+      sendMessage();
     }
   };
 
@@ -68,17 +86,17 @@ const Chatbot = () => {
           </CardHeader>
           <CardContent className="flex-1 flex flex-col min-h-0">
             <ScrollArea className="flex-1">
-              <div className="space-y-2 pb-4">
-                {messages.map((message) => (
+              <div className="space-y-2 pb-2">
+                {messages.map((m, i) => (
                   <div
-                    key={message.id}
+                    key={i}
                     className={`p-2 rounded-lg max-w-xs ${
-                      message.sender === "user"
+                      m.sender === "user"
                         ? "bg-blue-500 text-white self-end ml-auto"
                         : "bg-gray-200 text-black"
                     }`}
                   >
-                    {message.text}
+                    {m.text}
                   </div>
                 ))}
               </div>
@@ -91,7 +109,7 @@ const Chatbot = () => {
                 placeholder="Type your message..."
                 className="flex-1"
               />
-              <Button onClick={handleSend}>Send</Button>
+              <Button onClick={sendMessage}>Send</Button>
             </div>
           </CardContent>
         </Card>
