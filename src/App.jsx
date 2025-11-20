@@ -7,6 +7,10 @@ import DigitalMarketing from "./pages/DigitalMarketing";
 import PlantMarketplace from "./pages/PlantMarketplace";
 import SafetyApp from "./pages/SafetyApp";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/safety/Login";
+import Register from "./pages/safety/Register";
+import Dashboard from "./pages/safety/Dashboard";
+import Hero from "./components/safety/Hero";
 import Healthcare from "./pages/software/Healthcare";
 import RealEstate from "./pages/software/RealEstate";
 import FoodRestaurant from "./pages/software/FoodRestaurant";
@@ -31,8 +35,11 @@ import BookConsultancyModal from "./components/BookConsultancyModal";
 import Header from "./components/Header";
 import Chatbot from "./components/Chatbot";
 import Breadcrumb from "./components/Breadcrumb";
-
 import GoToTopButton from "./components/GoToTopButton";
+
+// Safety App imports
+import { AuthProvider } from "./contexts/AuthContext";
+import Contact from "./components/safety/Contact";
 
 class App extends React.Component {
   render() {
@@ -40,48 +47,321 @@ class App extends React.Component {
       <BrowserRouter
         future={{ v7_relativeSplatPath: true, v7_startTransition: true }}
       >
-        <Header />
-        <Breadcrumb />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/software" element={<Software />} />
-          <Route path="/software/healthcare" element={<Healthcare />} />
-          <Route path="/software/real-estate" element={<RealEstate />} />
-          <Route
-            path="/software/food-restaurant"
-            element={<FoodRestaurant />}
-          />
-          <Route
-            path="/software/trading-financial"
-            element={<TradingFinancial />}
-          />
-          <Route
-            path="/software/education-elearning"
-            element={<EducationElearning />}
-          />
-          <Route path="/software/enterprise" element={<Enterprise />} />
-          <Route path="/software/it-cloud" element={<ItCloud />} />
-          <Route path="/software/cybersecurity" element={<Cybersecurity />} />
-          <Route path="/software/ai-ml" element={<AiMl />} />
-          <Route path="/careers" element={<CareersHome />} />
-          <Route path="/careers/jobs" element={<JobListings />} />
-          <Route path="/careers/job/:id" element={<JobDetails />} />
-          <Route path="/careers/apply" element={<ApplicationForm />} />
-          <Route path="/careers/culture" element={<Culture />} />
-          <Route path="/careers/locations" element={<Locations />} />
-          <Route path="/careers/testimonials" element={<Testimonials />} />
-          <Route path="/careers/contact" element={<ContactHelp />} />
-          <Route path="/digital-marketing" element={<DigitalMarketing />} />
-          <Route path="/plant-marketplace" element={<PlantMarketplace />} />
-          <Route path="/safety-app" element={<SafetyApp />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/book" element={<BookConsultancyModal />} />
-        </Routes>
-        <Footer />
-        <Toaster />
-        <Chatbot />
-        <GoToTopButton />
+        <AuthProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <Index />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <About />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <Software />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/healthcare"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <Healthcare />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/real-estate"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <RealEstate />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/food-restaurant"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <FoodRestaurant />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/trading-financial"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <TradingFinancial />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/education-elearning"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <EducationElearning />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/enterprise"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <Enterprise />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/it-cloud"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <ItCloud />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/cybersecurity"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <Cybersecurity />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/software/ai-ml"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <AiMl />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/careers"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <CareersHome />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/careers/jobs"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <JobListings />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/careers/job/:id"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <JobDetails />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/careers/apply"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <ApplicationForm />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/careers/culture"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <Culture />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/careers/locations"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <Locations />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/careers/testimonials"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <Testimonials />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/careers/contact"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <ContactHelp />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/digital-marketing"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <DigitalMarketing />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/plant-marketplace"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <PlantMarketplace />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/safety-app"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <SafetyApp />
+                  <Footer />
+                </>
+              }
+            />
+            {/* Safety App Routes */}
+            <Route
+              path="/safety"
+              element={
+                <>
+                  <Hero />
+                  <Contact />
+                </>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/admin-dashboard" element={<Dashboard />} />
+            <Route path="/manager-dashboard" element={<Dashboard />} />
+            <Route path="/supervisor-dashboard" element={<Dashboard />} />
+            <Route path="/employee-dashboard" element={<Dashboard />} />
+            <Route
+              path="/home"
+              element={
+                <>
+                  <Hero />
+                  <Contact />
+                </>
+              }
+            />
+            {/* Safety App Pages */}
+            <Route path="/hazards" element={<Dashboard />} />
+            <Route path="/checklists" element={<Dashboard />} />
+            <Route path="/training" element={<Dashboard />} />
+            <Route path="/notifications" element={<Dashboard />} />
+            <Route path="/profile" element={<Dashboard />} />
+            <Route path="/settings" element={<Dashboard />} />
+            <Route
+              path="*"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <NotFound />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/book"
+              element={
+                <>
+                  <Header />
+                  <Breadcrumb />
+                  <BookConsultancyModal />
+                  <Footer />
+                </>
+              }
+            />
+          </Routes>
+          <Toaster />
+          <Chatbot />
+          <GoToTopButton />
+        </AuthProvider>
       </BrowserRouter>
     );
   }

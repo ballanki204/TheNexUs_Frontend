@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import {
   Card,
@@ -22,6 +23,14 @@ import {
   Award,
 } from "lucide-react";
 import safetyIcon from "../assets/safety-icon.jpg";
+
+// Safety App components
+import Hero from "../components/safety/Hero";
+import Features from "../components/safety/Features";
+import About from "../components/safety/About";
+import Services from "../components/safety/Services";
+import Contact from "../components/safety/Contact";
+import CTA from "../components/safety/CTA";
 
 const SafetyApp = () => {
   const [animatedSteps, setAnimatedSteps] = useState([0, 0, 0]);
@@ -212,13 +221,15 @@ const SafetyApp = () => {
                   className="flex flex-col gap-4 sm:flex-row animate-fade-in"
                   style={{ animationDelay: "0.4s" }}
                 >
-                  <Button
-                    size="lg"
-                    className="group px-8 py-6 text-lg bg-gradient-to-r from-primary via-blue-500 to-indigo-500 hover:from-indigo-500 hover:via-blue-500 hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                  >
-                    Download App
-                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
+                  <Link to="/safety">
+                    <Button
+                      size="lg"
+                      className="group px-8 py-6 text-lg bg-gradient-to-r from-primary via-blue-500 to-indigo-500 hover:from-indigo-500 hover:via-blue-500 hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    >
+                      Try Now
+                      <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
                   <Button
                     size="lg"
                     variant="outline"
@@ -528,6 +539,7 @@ const SafetyApp = () => {
                 <Button
                   size="lg"
                   className="group px-8 py-6 text-lg bg-gradient-to-r from-primary via-blue-500 to-indigo-500 hover:from-indigo-500 hover:via-blue-500 hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  onClick={() => (window.location.href = "/login")}
                 >
                   Try Free Version
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -543,6 +555,13 @@ const SafetyApp = () => {
             </div>
           </div>
         </section>
+
+        {/* Merged Home Page Content */}
+        <Features />
+        <About />
+        <Services />
+        <Contact />
+        <CTA />
       </main>
     </div>
   );

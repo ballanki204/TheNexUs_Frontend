@@ -68,11 +68,8 @@ function Header() {
   };
 
   const handleBookConsultancy = () => {
-    navigate("/book");
+    navigate("/book#book");
     closeMenu();
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 100);
   };
 
   // Define theme colors for each page
