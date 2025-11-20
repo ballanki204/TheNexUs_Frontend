@@ -101,15 +101,15 @@ class ContactHelp extends React.Component {
         icon: Mail,
         title: "Email Us",
         description: "Send us an email and we'll respond within 24 hours",
-        contact: "careers@thenexus.com",
-        action: "mailto:careers@thenexus.com",
+        contact: "info@thenexusrepo.com",
+        action: "info@thenexusrepo.com",
       },
       {
         icon: Phone,
         title: "Call Us",
         description: "Speak directly with our recruitment team",
-        contact: "+1 (555) 123-4567",
-        action: "tel:+15551234567",
+        contact: "+91 9876543210",
+        action: "tel:+91 9876543210",
       },
       {
         icon: MessageCircle,
@@ -332,11 +332,11 @@ class ContactHelp extends React.Component {
                           Headquarters
                         </h4>
                         <p className="text-gray-600 leading-relaxed">
-                          123 Tech Street
+                          9-19-20 Mahanti mansion
                           <br />
-                          Innovation City, IC 12345
+                          Cbm compound ,Opp Narayana college
                           <br />
-                          United States
+                          Visakhapatnam 530003
                         </p>
                       </div>
                     </div>
